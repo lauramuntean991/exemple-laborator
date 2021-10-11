@@ -16,7 +16,7 @@ namespace Exemple
             ICart result = ValidateCart(unvalidatedProducts);
             result.Match(
                 whenUnvalidatedCart: unvalidatedResult => unvalidatedProducts,
-                whenPayedCart: PayedResult => PayedResult,
+                whenPaidCart: PaidResult => PaidResult,
                 whenEmptyCart: emptyResult => emptyResult,
                 whenValidatedCart: validatedResult => payCart(validatedResult)
             );
@@ -53,7 +53,7 @@ namespace Exemple
             : new ValidatedCart(new List<ValidatedShoppingCart>());
 
         private static ICart payCart(ValidatedCart validCart) =>
-            new PayedCart(new List<ValidatedShoppingCart>(), DateTime.Now);
+            new PaidCart(new List<ValidatedShoppingCart>(), DateTime.Now);
 
         private static string? ReadValue(string prompt)
         {

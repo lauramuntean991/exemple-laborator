@@ -18,6 +18,6 @@ namespace Exemple.Domain
 
         public record ValidatedCart(IReadOnlyCollection<ValidatedShoppingCart> ProductsList) : ICart;
 
-        public record PayedCart(IReadOnlyCollection<ValidatedShoppingCart> ProductsList, DateTime PayedDate) : ICart;
+        public record PaidCart(IReadOnlyCollection<ValidatedShoppingCart> ProductsList, DateTime PaidDate) : ICart;
     }
 }
